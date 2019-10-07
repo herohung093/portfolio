@@ -1,0 +1,165 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.spanAbout {
+  width: 80px;
+  display: inline-block;
+  color: #503535;
+  font-weight: 600;
+}
+.button-icon {
+  color: #503535;
+}
+ul {
+  list-style: none;
+  margin-left: -40px;
+}
+.about-details ul li {
+  padding: 5px 0px;
+  border-bottom: 1px solid;
+  border-color: #f0f0f0;
+}
+body {
+  font-size: 16px;
+  line-height: 28px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  position: relative;
+  background-color: #fff;
+}
+.btn-primary {
+  background-color: #00c07c !important;
+  color: #fff !important;
+  border-color: #00c07c !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500 !important;
+  padding: 12px 40px !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  letter-spacing: 1px !important;
+  cursor: pointer;
+}
+.color-primary,
+.color-primary-a a {
+  color: #00c07c;
+}
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.py-80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.about-details {
+  margin-top: 10px;
+}
+.banner-image {
+  background-image: url("./img/banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+  background-size: 100% 100%;
+  overflow: hidden;
+  background-position: left bottom;
+}
+.main-nav {
+  width: 100%;
+  right: 0;
+  left: 0;
+  position: absolute;
+  padding: 5px 0;
+  z-index: 1;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+/*Modal*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-none {
+  display: none;
+}
