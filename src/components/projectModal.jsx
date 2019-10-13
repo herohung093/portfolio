@@ -17,7 +17,10 @@ const ProjectModal = props => {
         role="document"
         style={{ minWidth: "630px" }}
       >
-        <div className="modal-content">
+        <div
+          className="modal-content"
+          style={{ overflow: "auto", height: "90vh" }}
+        >
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalCenterTitle">
               {props.name}
