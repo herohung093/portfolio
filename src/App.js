@@ -1,83 +1,74 @@
-import React from "react";
-import NavBar from "./components/navBar";
-import "./App.css";
-import "./skills.css";
-import Banner from "./components/banner";
-import About from "./components/about";
-import SkillSet from "./components/skillsets";
-import Projects from "./components/projects";
-import { classImplements } from "@babel/types";
-import Scrollspy from "react-scrollspy";
+import React from 'react'
+import NavBar from './components/navBar'
+import './App.css'
+import './skills.css'
+import Banner from './components/banner'
+import About from './components/about'
+import SkillSet from './components/skillsets'
+import Projects from './components/projects'
+import ReactDOM from 'react-dom'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      currentSection: ""
-    };
-    this.bodyElement = null;
-    this.aboutSectionOffset = null;
-    this.projectsSectionOffset = null;
-    this.skillSetSectionOffset = null;
+      currentSection: 'home'
+    }
 
-    this.getCurrentSection = this.getCurrentSection.bind(this);
+    this.onScrolling = this.onScrolling.bind(this)
   }
+
+  aboutSection = null
+  skillSetSection = null
+  projectSection = null
 
   componentDidMount() {
-    this.aboutSectionOffset = document.getElementById("about").offsetHeight;
-    this.projectsSectionOffset = document
-      .getElementById("projects")
-      .getBoundingClientRect().top;
-    this.skillSetSectionOffset = document.getElementById("skillSet").offsetTop;
-    this.bodyElement = document.getElementById("body");
-
-    window.addEventListener("scroll", this.getCurrentSection);
+    window.addEventListener('scroll', this.onScrolling)
   }
 
-  getCurrentSection() {
-    const offsetTop = this.bodyElement.getBoundingClientRect().top;
+  onScrolling() {
+    if (this.isElementInViewPort(this.aboutSection))
+      this.setState({ currentSection: 'about' })
+    else if (this.isElementInViewPort(this.skillSetSection))
+      this.setState({ currentSection: 'skillSet' })
+    else if (this.isElementInViewPort(this.projectSection))
+      this.setState({ currentSection: 'projects' })
+    else if (window.pageYOffset < this.aboutSection.offsetTop)
+      this.setState({ currentSection: 'home' })
+  }
 
-    // console.log(Math.abs(offsetTop));
-    // console.log(Math.abs(this.aboutSectionOffset));
-    // console.log(Math.abs(this.projectsSectionOffset));
-    // console.log(Math.abs(this.skillSetSectionOffset));
-
-    if (
-      Math.abs(offsetTop) >= Math.abs(this.aboutSectionOffset) &&
-      Math.abs(offsetTop) < Math.abs(this.skillSetSectionOffset)
+  isElementInViewPort(elem) {
+    var bounding = elem.getBoundingClientRect()
+    return (
+      bounding.top >= 0 &&
+      bounding.left >= 0 &&
+      bounding.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      bounding.right <=
+        (window.innerWidth || document.documentElement.clientWidth)
     )
-      return this.setState({ currentSection: "about" });
-    if (
-      Math.abs(offsetTop) >= Math.abs(this.skillSetSectionOffset) &&
-      Math.abs(offsetTop) < Math.abs(this.projectsSectionOffset)
-    )
-      return this.setState({ currentSection: "about" });
-    return this.setState({ currentSection: "projects" });
   }
 
   render() {
-    console.log("about: ", this.aboutSectionOffset);
-    console.log("skill: ", this.skillSetSectionOffset);
-    console.log("prod: ", this.projectsSectionOffset);
+    // console.log("about: ", this.aboutSectionOffset);
+    // console.log("skill: ", this.skillSetSectionOffset);
+    // console.log("prod: ", this.projectsSectionOffset);
     return (
-      <body
-        id="body"
-        data-spy="scroll"
-        data-target="navbarSupportedContent"
-        data-offset="0"
-      >
-        <NavBar section={this.state.currentSection}></NavBar>
-        {document.getElementById === "about"
-          ? console.log("about")
-          : console.log("else")}
+      <>
+        <NavBar currentSection={this.state.currentSection}></NavBar>
         <Banner></Banner>
-        <About></About>
-        <SkillSet></SkillSet>
-
-        <Projects></Projects>
-      </body>
-    );
+        <About
+          ref={ref => (this.aboutSection = ReactDOM.findDOMNode(ref))}
+        ></About>
+        <SkillSet
+          ref={ref => (this.skillSetSection = ReactDOM.findDOMNode(ref))}
+        ></SkillSet>
+        <Projects
+          ref={ref => (this.projectSection = ReactDOM.findDOMNode(ref))}
+        ></Projects>
+      </>
+    )
   }
 }
 
-export default App;
+export default App

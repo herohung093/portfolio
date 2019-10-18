@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-const NavBar = props => {
+const NavBar = ({ currentSection }) => {
   const NavBar = styled.div`
     font-weight: 500;
     font-size: 20px;
@@ -10,14 +10,19 @@ const NavBar = props => {
     padding: 1px 15px;
     display: inline-block;
     color: #151515;
-  `;
+  `
 
-  console.log(props);
+  console.log(currentSection)
+  const getNavItemClassName = section => {
+    let defaultClassName = 'nav-item'
+    if (section === currentSection) defaultClassName += ' active'
+    return defaultClassName
+  }
   return (
     <header
       className="main-nav nav-scroll sticky-top"
       style={{
-        background: "linear-gradient(to right, #76bfe5 0%, #2ccfe2 100%)"
+        background: 'linear-gradient(to right, #76bfe5 0%, #2ccfe2 100%)'
       }}
     >
       <NavBar>
@@ -36,22 +41,22 @@ const NavBar = props => {
           </button>
           <div className="navbar navbar-default" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
+              <li className={getNavItemClassName('home')}>
                 <a className="nav-link" href="#top">
                   Home <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item">
+              <li className={getNavItemClassName('about')}>
                 <a className="nav-link" href="#about">
                   About
                 </a>
               </li>
-              <li className="nav-item">
+              <li className={getNavItemClassName('skillSet')}>
                 <a className="nav-link" href="#skillSet">
                   Skill Set
                 </a>
               </li>
-              <li className="nav-item">
+              <li className={getNavItemClassName('projects')}>
                 <a className="nav-link" href="#projects">
                   Projects
                 </a>
@@ -61,7 +66,7 @@ const NavBar = props => {
         </nav>
       </NavBar>
     </header>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

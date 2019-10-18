@@ -1,33 +1,22 @@
-import React from "react";
-import "../App.css";
-import resume from "../resume/Resume.pdf";
+import React from 'react'
+import '../App.css'
+import resume from '../resume/Resume.pdf'
 
 class About extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {};
-    this.sectionRef = null;
-  }
-
-  componentDidMount() {
-    if (this.sectionRef) {
-      console.log(this.sectionRef.clientHeight);
-    }
+    super(props)
+    this.state = {}
   }
   render() {
     return (
-      <section
-        ref={ref => (this.sectionRef = ref)}
-        id="about"
-        className="py-80"
-      >
+      <section id="about" className="py-80">
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-6">
               <div className="about-image">
                 <img
-                  src={require("../img/about.jpg")}
-                  style={{ width: "100%", maxHeight: "500px" }}
+                  src={require('../img/about.jpg')}
+                  style={{ width: '100%', maxHeight: '500px' }}
                 ></img>
               </div>
             </div>
@@ -41,7 +30,7 @@ class About extends React.Component {
                     Something about my selft
                   </h2>
                 </div>
-                <p className="mb-15" style={{ color: "#6c757d" }}>
+                <p className="mb-15" style={{ color: '#6c757d' }}>
                   I am passionate about building excellent software that
                   improves the lives of those around me. I specialize in
                   creating software for clients ranging from individuals and
@@ -118,8 +107,8 @@ class About extends React.Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default About;
+export default About
