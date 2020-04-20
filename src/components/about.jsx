@@ -1,11 +1,11 @@
-import React from 'react'
-import '../App.css'
-import resume from '../resume/Resume.pdf'
-
+import React from "react";
+import "../App.css";
+import resume from "../resume/Resume.pdf";
+import { Col, Row } from "react-bootstrap";
 class About extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
   render() {
     return (
@@ -15,8 +15,8 @@ class About extends React.Component {
             <div className="col-md-12 col-lg-6">
               <div className="about-image">
                 <img
-                  src={require('../img/about.jpg')}
-                  style={{ width: '100%', maxHeight: '500px' }}
+                  src={require("../img/about.jpg")}
+                  style={{ width: "100%", maxHeight: "500px" }}
                 ></img>
               </div>
             </div>
@@ -30,7 +30,7 @@ class About extends React.Component {
                     Something about my selft
                   </h2>
                 </div>
-                <p className="mb-15" style={{ color: '#6c757d' }}>
+                <p className="mb-15" style={{ color: "#6c757d" }}>
                   I am passionate about building excellent software that
                   improves the lives of those around me. I specialize in
                   creating software for clients ranging from individuals and
@@ -94,21 +94,30 @@ class About extends React.Component {
                     </div>
                   </li>
                 </ul>
-                <div className="mt-15">
-                  <a className="btn btn-primary mr-3" href={resume} download>
+                <Row className="mt-15">
+                  <Col
+                    className="btn btn-primary mr-3"
+                    style={{ width: "10%" }}
+                    href={resume}
+                    download
+                  >
                     Download CV
-                  </a>
-                  <a className="btn btn-primary" href="aa">
+                  </Col>
+                  <Col
+                    className="btn btn-primary"
+                    style={{ width: "10%" }}
+                    href="mailto:hung.vm2574@gmail.com"
+                  >
                     Send Message
-                  </a>
-                </div>
+                  </Col>
+                </Row>
               </div>
             </div>
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default About
+export default About;

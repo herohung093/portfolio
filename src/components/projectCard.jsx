@@ -7,6 +7,10 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import ProjectModal from "./projectModal";
+import styled from "styled-components";
+const Div = styled.div`
+  width: 100%;
+`;
 
 class ProjectCard extends Component {
   state = { displayDetail: false };
@@ -18,7 +22,7 @@ class ProjectCard extends Component {
   };
   render() {
     return (
-      <div>
+      <Div>
         <Card
           style={{ margin: "10px", maxWidth: "345px" }}
           onClick={() => this.showDetail()}
@@ -40,15 +44,7 @@ class ProjectCard extends Component {
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            {/* <Button
-            size="small"
-            color="primary"
-            onClick={() => this.showDetail()}
-          >
-            Learn More
-          </Button> */}
-          </CardActions>
+          <CardActions></CardActions>
         </Card>
         <ProjectModal
           show={this.state.displayDetail}
@@ -56,9 +52,10 @@ class ProjectCard extends Component {
           detail={this.props.detail}
           image={this.props.image}
           imageDetail={this.props.imageDetail}
+          imageDetail2={this.props.imageDetail2}
           name={this.props.name}
         ></ProjectModal>
-      </div>
+      </Div>
     );
   }
 }

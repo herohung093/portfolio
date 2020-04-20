@@ -1,18 +1,18 @@
-import React from 'react'
-import SkillBar from './skillBar'
+import React from "react";
+import SkillBar from "./skillBar";
 
 const skills = [
-  { name: 'Java', level: 87 },
-  { name: 'Spring Boot', level: 75 },
-  { name: 'React JS', level: 75 },
-  { name: 'HTML & CSS', level: 71 },
-  { name: 'Adnroid', level: 80 },
-  { name: 'Agile', level: 90 }
-]
+  { name: "Java", level: 87 },
+  { name: "Spring Boot", level: 80 },
+  { name: "React JS", level: 80 },
+  { name: "HTML & CSS", level: 71 },
+  { name: "Adnroid", level: 80 },
+  { name: "Agile", level: 90 },
+];
 class SkillSet extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
   render() {
     return (
@@ -23,12 +23,12 @@ class SkillSet extends React.Component {
               <section id="skillSet" className="bg-lightgray py-80">
                 <h4
                   className="inner-top-title color-primary m-0 letter-spacing-1"
-                  style={{ fontSize: '2rem' }}
+                  style={{ fontSize: "2rem" }}
                 >
                   Skill Set
                 </h4>
                 <div className="container ">
-                  {skills.map(item => (
+                  {skills.map((item) => (
                     <SkillBar
                       key={item.name}
                       level={item.level}
@@ -41,8 +41,8 @@ class SkillSet extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default SkillSet
+export default SkillSet;

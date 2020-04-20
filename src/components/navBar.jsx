@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const NavBar = ({ currentSection }) => {
   const NavBar = styled.div`
@@ -10,19 +10,22 @@ const NavBar = ({ currentSection }) => {
     padding: 1px 15px;
     display: inline-block;
     color: #151515;
-  `
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  `;
 
-  console.log(currentSection)
-  const getNavItemClassName = section => {
-    let defaultClassName = 'nav-item'
-    if (section === currentSection) defaultClassName += ' active'
-    return defaultClassName
-  }
+  console.log(currentSection);
+  const getNavItemClassName = (section) => {
+    let defaultClassName = "nav-item";
+    if (section === currentSection) defaultClassName += " active";
+    return defaultClassName;
+  };
   return (
     <header
       className="main-nav nav-scroll sticky-top"
       style={{
-        background: 'linear-gradient(to right, #76bfe5 0%, #2ccfe2 100%)'
+        background: "linear-gradient(to right, #76bfe5 0%, #2ccfe2 100%)",
       }}
     >
       <NavBar>
@@ -41,22 +44,22 @@ const NavBar = ({ currentSection }) => {
           </button>
           <div className="navbar navbar-default" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className={getNavItemClassName('home')}>
+              <li className={getNavItemClassName("home")}>
                 <a className="nav-link" href="#top">
                   Home <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className={getNavItemClassName('about')}>
+              <li className={getNavItemClassName("about")}>
                 <a className="nav-link" href="#about">
                   About
                 </a>
               </li>
-              <li className={getNavItemClassName('skillSet')}>
+              <li className={getNavItemClassName("skillSet")}>
                 <a className="nav-link" href="#skillSet">
                   Skill Set
                 </a>
               </li>
-              <li className={getNavItemClassName('projects')}>
+              <li className={getNavItemClassName("projects")}>
                 <a className="nav-link" href="#projects">
                   Projects
                 </a>
@@ -66,7 +69,7 @@ const NavBar = ({ currentSection }) => {
         </nav>
       </NavBar>
     </header>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

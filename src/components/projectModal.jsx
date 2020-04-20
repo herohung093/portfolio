@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-const ProjectModal = props => {
+import { Carousel } from "react-bootstrap";
+const ProjectModal = (props) => {
   const showHideClassName = props.show
     ? "modal  display-block"
     : "modal display-none";
@@ -11,11 +11,12 @@ const ProjectModal = props => {
       role="dialog"
       aria-labelledby="exampleModalCenterTitle"
       aria-hidden="true"
+      style={{ background: "#f5f5f5" }}
     >
       <div
         className="modal-dialog modal-dialog-scrollable"
         role="document"
-        style={{ minWidth: "630px" }}
+        style={{ minWidth: "60%" }}
       >
         <div
           className="modal-content"
@@ -36,16 +37,32 @@ const ProjectModal = props => {
             </button>
           </div>
           <div className="modal-body">
-            <img
-              src={require(`${props.imageDetail}`)}
-              alt="Logo"
-              style={{
-                borderRadius: "8px",
-                display: "block",
-                marginLeft: "auto",
-                marginRight: "auto"
-              }}
-            />
+            <Carousel>
+              <Carousel.Item>
+                <img
+                  src={require(`${props.imageDetail}`)}
+                  alt="Logo"
+                  style={{
+                    borderRadius: "8px",
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  src={require(`${props.imageDetail2}`)}
+                  alt="Logo"
+                  style={{
+                    borderRadius: "8px",
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                />
+              </Carousel.Item>
+            </Carousel>
             <p>{props.detail}</p>
           </div>
           <div className="modal-footer">
